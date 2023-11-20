@@ -10,14 +10,23 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/productos")
 @RequiredArgsConstructor
-＠Tag()public class FakeApiController {
+＠Tag(name="fake-api")public class FakeApiController {
 
     private final FakeApiService service;
 
+    @Operation(summary = "Busca todos os productos", method = "GET")
+    @ApiResponse(value = {
+        @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+        @ApiResponse(responseCode = "422", description = "Dados de requisicao invalida"),
+        @ApiResponse(responseCode = "400", description = "Parametros invalidos"),
+        @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+
+    })
+    
     ＠GetMapping ("")
 
     public ResponseEntity<List<ProductsDTO>> buscaProductos() {
-        return service.buscaProductos();
+        return ResponseEntity.ok(service.buscaProductos());
 
     }
 }
