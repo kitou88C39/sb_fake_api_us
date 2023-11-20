@@ -17,10 +17,7 @@ import lombok.RequiredArgsConstructor;
     @Operation(summary = "Busca todos os productos", method = "GET")
     @ApiResponse(value = {
         @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
-        @ApiResponse(responseCode = "422", description = "Dados de requisicao invalida"),
-        @ApiResponse(responseCode = "400", description = "Parametros invalidos"),
         @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
-
     })
     
     ＠GetMapping ("")
