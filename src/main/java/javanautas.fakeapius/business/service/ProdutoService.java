@@ -20,11 +20,20 @@ public class ProductoService {
         }
     }
 
-    public List<ProductoEntity> buscaTodoProductos() {
+    public List<ProdutoEntity> buscaTodosProductos() {
         try {
             return repository.findAll();
         } catch (Exception e) {
             throw new RuntimeException("Erro ao buscar todos os productos" + e);
         }
     }
+
+    public Boolean existsPorNome(String nome) {
+        try {
+            return repository.exists()ByNome(name);
+        } catch (Exception e) {
+            throw new RuntimeException(format("Erro ao buscar producto par nome",nome), e);
+        }
+    }
+
 }
