@@ -1,11 +1,10 @@
 package javanautas.fakeapius.business;
 
 import org.bouncycastle.crypto.RuntimeCryptoException;
-import org.springframework.stereotype.Service;
-
 import javanautas.fakeapius.infrastructure.entities.ProductoEntity;
 import javanautas.fakeapius.infrastructure.repositories.ProductoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +17,14 @@ public class ProductoService {
             return repository.save(entity);
         } catch (Exception e) {
             throw new RuntimeException("Erro ao salver Productos" + e);
+        }
+    }
+
+    public List<ProductoEntity> buscaTodoProductos() {
+        try {
+            return repository.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar todos os productos" + e);
         }
     }
 }
