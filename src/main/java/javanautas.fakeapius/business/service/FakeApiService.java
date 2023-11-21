@@ -13,13 +13,16 @@ import java.util.list;
 public class FakeApiService {
 
     private final FakeApiClient cliente;
-    private final ProductoConverter converter;
-    private final ProdutoService productoservice;
+    private final ProdutoConverter converter;
+    private final ProdutoService productoService;
 
-    public List<ProductsDTO> buscaListaProducts() {
-        List<ProductsDTO> dto = cliente.buscaListaProductos();
-        dto.forEach(produto -> productoService.salvaProdutos(converter.toEntity(produto)));
+    public List<ProductsDTO> buscaProdutos() {
+        List<ProductsDTO> dto = cliente.buscaListaProdutos();
+        dto.forEach(produto -> {
+            productoService.salvaProdutos(converter.toEntity(produto));
+        }
 
+        );
+        return converter.toListDTO(productoService.buscaTodosProductos());
     }
-    return dto;
 }
