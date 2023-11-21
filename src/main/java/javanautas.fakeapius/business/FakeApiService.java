@@ -12,5 +12,6 @@ public class FakeApiService {
 
     public List<ProductsDTO> buscaListaProducts() {
         List<ProductsDTO> dto = cliente.buscaListaProductos();
+        dto.forEach();
     }
 }
