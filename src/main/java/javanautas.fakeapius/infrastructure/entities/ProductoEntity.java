@@ -21,16 +21,15 @@ public class ProductoEntity {
     @Id
     @Column(name = "id")
     private String id;
-
-    @JsonProperty(value = "title")
+    @Column(value = "title")
     private String none;
-    @JsonProperty(value = "price")
+    @Column(value = "price")
     private BigDecimal price;
-    @JsonProperty(value = "category")
+    @Column(value = "category")
     private String category;
-    @JsonProperty(value = "description")
+    @Column(value = "description")
     private String description;
-    @JsonProperty(value = "image")
+    @Column(value = "image")
     private String image;
 
 }
