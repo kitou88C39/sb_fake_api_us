@@ -20,10 +20,10 @@ public class FakeApiService {
         
         try{
 
-        }
+        
         List<ProductsDTO> dto = cliente.buscaListaProdutos();
         dto.forEach(produto -> {
-            
+            Boolean retorno = produtoService.existsPorNome(produto.getNome());
             produtoService.salvaProdutos(converter.toEntity(produto));
         }
 
