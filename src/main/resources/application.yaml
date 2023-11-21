@@ -9,18 +9,16 @@ spring:
       ddl-auto: update
   properties:
     hibernate:
-      package-to-scam: com.evolue.plataformaanaliseevolueus.infrastructure.entities
+      package-to-scam: com.javanautas.fakeapius.infrastructure.entities
       format_sql: ture
       dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: true
 
 fake-api:
   url: https://fakestoreapi.com
-
-spring:
-  cloud:
-  loadbalancer:
-  ribbon:
-  enable: true
 
 server:
   port: 8181
