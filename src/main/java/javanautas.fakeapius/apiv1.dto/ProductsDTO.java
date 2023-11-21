@@ -13,6 +13,8 @@ public class ProductsDTO {
 
     @JsonProperty(value = "id")
     private Long id;
+    @JsonProperty(value = "entity_id")
+    private string entityId;
     @JsonProperty(value = "title")
     private String none;
     @JsonProperty(value = "price")
