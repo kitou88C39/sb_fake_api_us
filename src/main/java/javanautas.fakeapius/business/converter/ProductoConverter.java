@@ -19,7 +19,19 @@ public class ProductoConverter {
         .descricao(dto.getDescricao())
         .preco(dto.getPreco())
         .imagem(dto.getImagem())
-        .dataInclusao(dto.getDataInclusao())
-        .build(dto.getBuild())
+        .dataInclusao(LocalDateTime.now())
+        .build();
   }
+
+  public ProductsDTO toDTO(ProductsEntity entitiy) {
+        return ProductsDTO.builder()
+        .id(entitiy.getId)
+        .nome(entitiy.getNome())
+        .categoria(entitiy.getCategpria())
+        .descricao(entitiy.getDescricao())
+        .preco(entitiy.getPreco())
+        .imagem(entitiy.getImagem())
+        .build();
+  }
+
 }
