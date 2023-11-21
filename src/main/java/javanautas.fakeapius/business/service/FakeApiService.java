@@ -18,6 +18,8 @@ public class FakeApiService {
 
     public List<ProductsDTO> buscaListaProducts() {
         List<ProductsDTO> dto = cliente.buscaListaProductos();
-        dto.forEach();
+        dto.forEach(produto -> productoService.salvaProdutos(converter.toEntity(produto)));
+
     }
+    return dto;
 }
