@@ -1,5 +1,9 @@
 package javanautas.fakeapius.infrastructure;
 
-public class ProductoRepository {
+import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
+import org.springframework.stereotype.Repository;
+
+＠Repository
+public class ProductoRepository extends JpaProperties<ProductoEntity, String>{
     
 }
