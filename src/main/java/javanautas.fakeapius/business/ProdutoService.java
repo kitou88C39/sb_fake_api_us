@@ -13,11 +13,11 @@ public class ProductoService {
 
     private ProductoRepository repository;
 
-    public ProductoEntity salvaProductos(ProductoEntity entity){
+    public ProductoEntity salvaProductos(ProductoEntity entity) {
         try {
             return repository.save(entity);
-        } catch(Exception e) {
-            throw new RuntimeException("Erro ao salver Productos")
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao salver Productos" + e);
         }
     }
 }
