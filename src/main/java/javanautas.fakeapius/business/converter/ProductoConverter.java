@@ -23,9 +23,9 @@ public class ProductoConverter {
         .build();
   }
 
-  public ProductsDTO toDTO(ProductsEntity entitiy) {
+  public ProductsDTO toDTO(ProdutoEntity entitiy) {
         return ProductsDTO.builder()
-        .id(entitiy.getId)
+        .entityId(entitiy.getId)
         .nome(entitiy.getNome())
         .categoria(entitiy.getCategpria())
         .descricao(entitiy.getDescricao())
