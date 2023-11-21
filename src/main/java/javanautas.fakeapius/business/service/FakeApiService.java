@@ -14,15 +14,20 @@ public class FakeApiService {
 
     private final FakeApiClient cliente;
     private final ProdutoConverter converter;
-    private final ProdutoService productoService;
+    private final ProdutoService produtoService;
 
     public List<ProductsDTO> buscaProdutos() {
+        
+        try{
+
+        }
         List<ProductsDTO> dto = cliente.buscaListaProdutos();
         dto.forEach(produto -> {
-            productoService.salvaProdutos(converter.toEntity(produto));
+            
+            produtoService.salvaProdutos(converter.toEntity(produto));
         }
 
         );
-        return converter.toListDTO(productoService.buscaTodosProductos());
+        return converter.toListDTO(produtoService.buscaTodosProductos());
     }
 }
