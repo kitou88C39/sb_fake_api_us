@@ -36,9 +36,11 @@ public class ProductoService {
         }
     }
 
-    public void deletaProduto(String nome){
+    public void deletaProduto(String nome) {
         try {
-            return repository.delete(nome);
+            repository.deleteByNome(nome);
+        } catch (Exception e) {
+            throw new RuntimeException(format("Erro ao delete producto par nome", nome), e);
         }
     }
 
