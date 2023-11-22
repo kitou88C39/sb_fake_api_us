@@ -17,7 +17,6 @@ public class FakeApiService {
     private final ProdutoService produtoService;
 
     public List<ProductsDTO> buscaProdutos() {
-        
         try{
 
         
