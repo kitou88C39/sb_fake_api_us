@@ -28,12 +28,19 @@ public class ProductoService {
         }
     }
 
-    public Boolean existsPorNome(String nome) {
+    public ProductoEntity buscaProdutoPorNome(String nome) {
         try {
-            return repository.exists()ByNome(name);
+            return repository.existsByNome(nome);
         } catch (Exception e) {
-            throw new RuntimeException(format("Erro ao buscar producto par nome",nome), e);
+            throw new RuntimeException(format("Erro ao buscar producto par nome", nome), e);
         }
     }
 
+    public Boolean existsPorNome(String nome) {
+        try {
+            return repository.existsByNome(nome);
+        } catch (Exception e) {
+            throw new RuntimeException(format("Erro ao buscar producto par nome", nome), e);
+        }
+    }
 }
