@@ -30,9 +30,15 @@ public class ProductoService {
 
     public ProductoEntity buscaProdutoPorNome(String nome) {
         try {
-            return repository.existsByNome(nome);
+            return repository.findByNome(nome);
         } catch (Exception e) {
             throw new RuntimeException(format("Erro ao buscar producto par nome", nome), e);
+        }
+    }
+
+    public void deletaProduto(String nome){
+        try {
+            return repository.delete(nome);
         }
     }
 
