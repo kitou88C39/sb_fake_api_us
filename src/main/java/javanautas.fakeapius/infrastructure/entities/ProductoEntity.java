@@ -13,8 +13,7 @@ import lombok.Setter;
 @Table(name = "produtos")
 @Getter
 @Setter
-@NoArgsConstructor
-＠AllArgsConstructor
+@NoArgsConstructor ＠AllArgsConstructor
 @Builder
 
 public class ProductoEntity {
@@ -22,17 +21,17 @@ public class ProductoEntity {
     @Id
     @Column(name = "id")
     private String id;
-    @Column(value = "title")
+    @Column(value = "title", length = 800)
     private String none;
     @Column(value = "price")
     private BigDecimal price;
-    @Column(value = "category")
+    @Column(value = "category", length = 800)
     private String category;
-    @Column(value = "description")
+    @Column(value = "description", length = 800)
     private String description;
     @Column(value = "image")
     private String image;
-    @Column(name = "data_incLusao")
+    @Column(name = "data_incLusao", length = 800)
     private LocalDateTime dataIncLusao;
 
 }
