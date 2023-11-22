@@ -2,6 +2,7 @@ package javanautas.fakeapius.business;
 
 import org.bouncycastle.crypto.RuntimeCryptoException;
 
+import javanautas.fakeapius.apiv1.dto.ProductsDTO;
 import javanautas.fakeapius.business.converter.ProdutoConverter;
 import javanautas.fakeapius.infrastructure.entities.ProductoEntity;
 import javanautas.fakeapius.infrastructure.repositories.ProductoRepository;
@@ -53,5 +54,11 @@ public class ProductoService {
         } catch (Exception e) {
             throw new RuntimeException(format("Erro ao buscar producto par nome", nome), e);
         }
+    }
+
+    public ProductsDTO updateProduto(String id, ProductsDTO dto) {
+        try {
+         ProductoEntity entity = repository.findById(id).orElseThorw(()-> new RuntimeException("Id nao existe no banco de dados"));
+         converter.toDTO()
     }
 }
