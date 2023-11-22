@@ -1,6 +1,8 @@
 package javanautas.fakeapius.business;
 
 import org.bouncycastle.crypto.RuntimeCryptoException;
+
+import javanautas.fakeapius.business.converter.ProdutoConverter;
 import javanautas.fakeapius.infrastructure.entities.ProductoEntity;
 import javanautas.fakeapius.infrastructure.repositories.ProductoRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +12,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ProductoService {
 
-    private ProductoRepository repository;
+    private final ProdutoRepository repository;
+    private final ProdutoConverter converter;
 
     public ProductoEntity salvaProductos(ProductoEntity entity) {
         try {
