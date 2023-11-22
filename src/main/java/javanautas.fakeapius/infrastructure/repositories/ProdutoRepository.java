@@ -1,7 +1,6 @@
 package javanautas.fakeapius.infrastructure.repositories;
 
 import javanautas.fakeapius.infrastructure.entities.ProductoEntity;
-import javanautas.fakeapius.infrastructure.entities.ProdutoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
