@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
     private final FakeApiService service;
     private final ProdutoService produtoService;
 
-    @Operation(summary = "Busca todos os productos", method = "GET")
+    @Operation(summary = "Busca produtos de API e Salvar", method = "POST")
     @ApiResponse(value = {
         @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
         @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
@@ -70,4 +70,17 @@ import lombok.RequiredArgsConstructor;
         produtoService.deleteProduto(nome);
         return ResponseEntity.accepted().build();
     }
+
+    @Operation(summary = "Busca todoso os produtos", method = "PUT")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Produto deletado com succeso"),
+        @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
+    })
+
+    ＠PutMapping ("/")
+
+    public ResponseEntity<ProductsDTO> updateProdutos(@RequestParam("id") String id, @RequestBody ProductsDTO dto) {
+        return ResponseEntity.ok(produtoService.updateProdutosDTO(id, dto));
+    }
+
 }
