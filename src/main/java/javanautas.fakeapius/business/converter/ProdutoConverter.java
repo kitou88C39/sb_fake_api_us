@@ -27,10 +27,10 @@ public class ProdutoConverter {
                         .id(id)
                         .nome(dto.getNome() != null ? dto.getNome() : entity.getNome())
                         .categoria(dto.getCategpria() != null ? dto.getCategpria() : entity.getCategpria())
-                        .descricao(dto.getDescricao())
-                        .preco(dto.getPreco())
-                        .imagem(dto.getImagem())
-                        .dataInclusao(LocalDateTime.now())
+                        .descricao(dto.getDescricao() != null ? dto.getDescricao() : entity.getDescricao())
+                        .preco(dto.getPreco() != null ? dto.getPreco() : entity.getPreco())
+                        .imagem(dto.getImagem() != null ? dto.getImagem() : entity.getImagem())
+                        .dataInclusao(entity.getDataInclusao())
                         .build();
       }
 
