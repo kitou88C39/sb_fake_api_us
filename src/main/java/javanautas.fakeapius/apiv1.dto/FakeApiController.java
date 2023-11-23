@@ -2,6 +2,7 @@ package javanautas.fakeapius.apiv1.dto;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -36,11 +37,22 @@ import lombok.RequiredArgsConstructor;
         @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
     })
 
-    ＠PostMapping ("/api")
+    ＠PostMapping ("/")
 
     public ResponseEntity<ProductsDTO> salvaProdutos(@RequestBody ProductsDTO dto) {
         return ResponseEntity.ok(produtoService.salvaProdutosDTO(dto));
 
     }
 
+    @Operation(summary = "Fazer update de novos produtos", method = "PUT")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Produto salvo com succeso"),
+        @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
+    })
+
+    ＠PutMapping ("/")
+
+    public ResponseEntity<ProductsDTO> updateProdutos(@RequestParam("id") String id, @RequestBody ProductsDTO dto) {
+        return ResponseEntity.ok(produtoService.updateProdutosDTO(id, dto));
+    }
 }
