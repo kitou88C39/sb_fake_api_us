@@ -10,7 +10,7 @@ import java.util.UUID;
 @Component
 public class ProdutoConverter {
 
-      public ProductoEntity toEntity(ProductsDTO dto) {
+      public ProdutoEntity toEntity(ProductsDTO dto) {
             return ProductoEntity.builder()
                         .id(String.valueOf(UUID.randomUUID()))
                         .nome(dto.getNome())
@@ -22,7 +22,7 @@ public class ProdutoConverter {
                         .build();
       }
 
-      public ProductoEntity toEntityUpdate(ProductoEntity entity, ProductsDTO dto, String id) {
+      public ProdutoEntity toEntityUpdate(ProdutoEntity entity, ProductsDTO dto, String id) {
             return ProdutoEntity.builder()
                         .id(id)
                         .nome(dto.getNome() != null ? dto.getNome() : entity.getNome())
