@@ -55,4 +55,19 @@ import lombok.RequiredArgsConstructor;
     public ResponseEntity<ProductsDTO> updateProdutos(@RequestParam("id") String id, @RequestBody ProductsDTO dto) {
         return ResponseEntity.ok(produtoService.updateProdutosDTO(id, dto));
     }
+
+    @Operation(summary = "Delete produtos", method = "DELETE")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Produto deletado com succeso"),
+        @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
+    })
+
+    ＠DeleteMapping ("/")
+
+    public ResponseEntity<void>
+
+    deleteProduto(@RequestParam("nome") String nome) {
+        produtoService.deleteProduto(nome);
+        return ResponseEntity.accepted().build();
+    }
 }
