@@ -16,9 +16,18 @@ public class ProductoService {
     private final ProdutoRepository repository;
     private final ProdutoConverter converter;
 
-    public ProductoEntity salvaProductos(ProductoEntity entity) {
+    public ProductoEntity salvaProdutos(ProductoEntity entity) {
         try {
             return repository.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao salver Productos" + e);
+        }
+    }
+
+    public ProductosDTO salvaProdutosDTO(ProductoDTO dto) {
+        try {
+            ProductoEntity entity = converter.toEntity(dto);
+            return converter.toDTO(repository.save(entity));
         } catch (Exception e) {
             throw new RuntimeException("Erro ao salver Productos" + e);
         }
