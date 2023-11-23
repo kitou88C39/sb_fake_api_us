@@ -31,7 +31,8 @@ public class ProductoEntity {
     private String description;
     @Column(value = "image")
     private String image;
-    @Column(name = "data_incLusao", length = 800)
+    @Column(name = "data_incLusao")
     private LocalDateTime dataIncLusao;
-
+    @Column(name = "data_atualizacao")
+    private LocalDateTime dataAualizacao;
 }
