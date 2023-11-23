@@ -31,6 +31,7 @@ public class ProdutoConverter {
                         .preco(dto.getPreco() != null ? dto.getPreco() : entity.getPreco())
                         .imagem(dto.getImagem() != null ? dto.getImagem() : entity.getImagem())
                         .dataInclusao(entity.getDataInclusao())
+                        .dataAualizacao(LocalDateTime.now())
                         .build();
       }
 
