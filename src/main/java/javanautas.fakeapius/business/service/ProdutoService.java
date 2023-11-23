@@ -58,7 +58,12 @@ public class ProductoService {
 
     public ProductsDTO updateProduto(String id, ProductsDTO dto) {
         try {
-         ProductoEntity entity = repository.findById(id).orElseThorw(()-> new RuntimeException("Id nao existe no banco de dados"));
-         converter.toDTO()
+            ProductoEntity entity = repository.findById(id)
+                    .orElseThorw(() -> new RuntimeException("Id nao existe no banco de dados"));
+            salvaProdutos(converter.toEntityUpdate(entity, dto, id));
+            return converter.toDTO(repository.findByNome(entity.getNome()));
+        } catch (Exception e) {
+            throw new RuntimeException(format("Erro ao atualiza producto"), e);
+        }
     }
 }
