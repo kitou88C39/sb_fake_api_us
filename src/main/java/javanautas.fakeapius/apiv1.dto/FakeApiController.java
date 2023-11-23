@@ -20,10 +20,10 @@ import lombok.RequiredArgsConstructor;
         @ApiResponse(responseCode = "500", description = "Erro ao realizar busca dos dados"),
     })
     
-    ＠GetMapping ("")
+    ＠PostMapping ("/api")
 
-    public ResponseEntity<List<ProductsDTO>> buscaProductos() {
-        return ResponseEntity.ok(service.buscaProductos());
+    public ResponseEntity<List<ProductsDTO>> salvaProductosApi() {
+        return ResponseEntity.ok(service.buscaProdutos());
 
     }
 }
