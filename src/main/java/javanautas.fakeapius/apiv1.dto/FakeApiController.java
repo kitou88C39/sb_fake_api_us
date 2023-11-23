@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import javanautas.fakeapius.business.FakeApiService;
 import lombok.RequiredArgsConstructor;
@@ -31,14 +32,14 @@ import lombok.RequiredArgsConstructor;
 
     @Operation(summary = "Salva novos produtos", method = "POST")
     @ApiResponses(value = {
-        @ApiResponses(responseCode = "200", description = "Busca realizada com succeso"),
-        @ApiResponses(responseCode = "500", description = "Erro ao realizar busca dos dados"),
+        @ApiResponse(responseCode = "200", description = "Produto salvo com succeso"),
+        @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
     })
 
     ＠PostMapping ("/api")
 
-    public ResponseEntity<List<ProductsDTO>> salvaProdutosApi() {
-        return ResponseEntity.ok(service.buscaProdutos());
+    public ResponseEntity<ProductsDTO> salvaProdutos(@RequestBody ProductsDTO dto) {
+        return ResponseEntity.ok(produtoService.salvaProdutosDTO(dto));
 
     }
 
