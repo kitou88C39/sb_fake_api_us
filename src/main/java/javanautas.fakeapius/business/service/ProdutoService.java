@@ -41,9 +41,9 @@ public class ProductoService {
         }
     }
 
-    public ProductoEntity buscaProdutoPorNome(String nome) {
+    public ProductsDTO buscaProdutoPorNome(String nome) {
         try {
-            return repository.findByNome(nome);
+            return converter.toDTO(repository.findByNome(nome));
         } catch (Exception e) {
             throw new RuntimeException(format("Erro ao buscar producto par nome", nome), e);
         }
