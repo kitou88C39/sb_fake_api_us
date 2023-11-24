@@ -71,7 +71,7 @@ import lombok.RequiredArgsConstructor;
         return ResponseEntity.accepted().build();
     }
 
-    @Operation(summary = "Busca todoso os produtos", method = "PUT")
+    @Operation(summary = "Busca todoso os produtos", method = "GET")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Produto deletado com succeso"),
         @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
