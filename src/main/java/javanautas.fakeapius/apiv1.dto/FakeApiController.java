@@ -77,10 +77,22 @@ import lombok.RequiredArgsConstructor;
         @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
     })
 
-    ＠PutMapping ("/")
+    ＠GetMapping ("/")
 
     public ResponseEntity<List<ProductsDTO>> buscaTodosProdutos() {
         return ResponseEntity.ok(produtoService.buscaTodosProdutos());
+    }
+
+    @Operation(summary = "Busca produto por nome", method = "GET")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Produto deletado com succeso"),
+        @ApiResponse(responseCode = "500", description = "Erro ao salovo os produtos"),
+    })
+
+    ＠GetMapping ("/{nome}")
+
+    public ResponseEntity<ProductsDTO> buscaProdutoPorNome(@PathVariable("nome") String nome) {
+        return ResponseEntity.ok(produtoService.buscaProdutoPorNome(nome));
     }
 
 }
