@@ -33,14 +33,6 @@ public class ProductoService {
         }
     }
 
-    public List<ProdutoEntity> buscaTodosProductos() {
-        try {
-            return repository.findAll();
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao buscar todos os productos" + e);
-        }
-    }
-
     public ProductsDTO buscaProdutoPorNome(String nome) {
         try {
             return converter.toDTO(repository.findByNome(nome));
@@ -49,7 +41,7 @@ public class ProductoService {
         }
     }
 
-    public List<ProductsDTO> buscaTodosProdutoDTO() {
+    public List<ProductsDTO> buscaTodosProdutos() {
         try {
             return converter.toListDTO(repository.findAll());
         } catch (Exception e) {
