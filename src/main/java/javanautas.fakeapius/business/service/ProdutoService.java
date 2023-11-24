@@ -49,7 +49,7 @@ public class ProductoService {
         }
     }
 
-    public List<ProductsDTO> buscaTodosProduto() {
+    public List<ProductsDTO> buscaTodosProdutoDTO() {
         try {
             return converter.toListDTO(repository.findAll());
         } catch (Exception e) {
