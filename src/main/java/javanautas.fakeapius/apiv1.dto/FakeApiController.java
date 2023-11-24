@@ -79,8 +79,8 @@ import lombok.RequiredArgsConstructor;
 
     ＠PutMapping ("/")
 
-    public ResponseEntity<ProductsDTO> updateProdutos(@RequestParam("id") String id, @RequestBody ProductsDTO dto) {
-        return ResponseEntity.ok(produtoService.updateProdutosDTO(id, dto));
+    public ResponseEntity<List<ProductsDTO>> buscaTodosProdutos() {
+        return ResponseEntity.ok(produtoService.buscaTodosProdutos());
     }
 
 }
