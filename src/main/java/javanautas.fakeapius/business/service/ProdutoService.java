@@ -49,6 +49,14 @@ public class ProductoService {
         }
     }
 
+    public List<ProductsDTO> buscaTodosProdutoDTO() {
+        try {
+            return converter.toListDTO(repository.findAll());
+        } catch (Exception e) {
+            throw new RuntimeException(format("Erro ao buscar todos os producto"), e);
+        }
+    }
+
     public void deletaProduto(String nome) {
         try {
             repository.deleteByNome(nome);
